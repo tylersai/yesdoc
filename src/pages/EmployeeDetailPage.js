@@ -33,7 +33,7 @@ const EmployeeDetailPage = ({ match }) => {
     setEmp(newEmp);
   };
 
-  const goList = () => history.push('/');
+  const goList = () => history.push('/employee-list');
 
   const goNew = () => history.push('/employee');
 
@@ -41,6 +41,7 @@ const EmployeeDetailPage = ({ match }) => {
 
   const goSave = e => {
     e.preventDefault();
+    if(emp.dateOfBirth)
     Axio.post(API_ENDPOINT + '/employee', emp)
     .then(res => {
       if(res.data._id){
@@ -51,10 +52,12 @@ const EmployeeDetailPage = ({ match }) => {
       }
     })
     .catch(err => console.log(err));
+    else alert('Choose Date of Birth');
   };
 
   const goUpdate = e => {
     e.preventDefault();
+    if(emp.dateOfBirth)
     Axio.patch(API_ENDPOINT + `/employee/${match.params.id}`, emp)
     .then(res => {
       if(res.data._id){
@@ -64,6 +67,7 @@ const EmployeeDetailPage = ({ match }) => {
       }
     })
     .catch(err => console.log(err));
+    else alert('Choose Date of Birth');
   };
 
   const goDelete = e => {
