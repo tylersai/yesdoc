@@ -1,4 +1,4 @@
-export const API_ENDPOINT = "http://172.20.10.3:5000";
+export const API_ENDPOINT = "https://yesdoc-api.herokuapp.com";
 
 export const getDefaultEmp = () => {
   return {
