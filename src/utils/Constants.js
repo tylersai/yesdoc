@@ -5,8 +5,8 @@ export const getDefaultEmp = () => {
     memberId: "",
     name: "",
     address: "",
-    dateOfBirth: new Date(),
-    employerName: "Yes Doc",
+    dateOfBirth: "",
+    employerName: "",
     credits: 0.0
   };
 };
