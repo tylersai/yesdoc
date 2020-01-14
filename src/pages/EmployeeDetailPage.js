@@ -85,9 +85,9 @@ const EmployeeDetailPage = ({ match }) => {
       <div className="row justify-content-center">
         <div className="col-md-3">
           <div className="d-flex align-items-center btn-wrapper">
-            <button onClick={goList} className="btn btn-info">List</button>
-            <button onClick={goNew} className="btn btn-info mx-2" disabled={match.params.id ? false:true}>New</button>
-            <button onClick={goUseCredit} className="btn btn-info" disabled={match.params.id ? false:true}>Use Credit</button>
+            <button onClick={goList} className="btn btn-info animate-enlarge">List</button>
+            <button onClick={goNew} className="btn btn-info mx-2 animate-enlarge" disabled={match.params.id ? false:true}>New</button>
+            <button onClick={goUseCredit} className="btn btn-info animate-enlarge" disabled={match.params.id ? false:true}>Use Credit</button>
           </div>
         </div>
         <div className="col-md-5">
