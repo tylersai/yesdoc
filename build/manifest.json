@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Yes Doc",
+  "name": "Yes Doctor",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,6 +13,11 @@
       "sizes": "128x128"
     },
     {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
       "src": "logo256.png",
       "type": "image/png",
       "sizes": "256x256"
@@ -23,8 +28,8 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#70eaff",
+  "background_color": "#fafafa"
 }
