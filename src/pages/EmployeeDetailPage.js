@@ -84,6 +84,11 @@ const EmployeeDetailPage = ({ match }) => {
     .catch(err => console.log(err));
   };
 
+  const goTrans = e => {
+    e.preventDefault();
+    history.push(`/transactions/${match.params.id}`);
+  }
+
   return (
     <div className="EmployeeDetailPage container py-4">
       <div className="row justify-content-center">
@@ -168,6 +173,7 @@ const EmployeeDetailPage = ({ match }) => {
               </div>
               <input type="submit" className="btn btn-info" value="Save" />
               <button onClick={goDelete} className="btn btn-danger ml-2" disabled={match.params.id ? false:true}>Delete</button>
+              <button onClick={goTrans} className="btn btn-info float-right" disabled={match.params.id ? false:true}>Credit History &rarr;</button>
             </form>
           </div>
         </div>

@@ -1,0 +1,13 @@
+.TransHistory .memberId {
+    color:#ff70bc;
+    font-weight: 600;
+}
+
+.TransHistory .datetime{
+    text-align: left !important;
+    font-size: 0.9rem;
+}
+
+.TransHistory .list-group-item h5{
+    letter-spacing: 2px;
+}

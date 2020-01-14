@@ -4,6 +4,7 @@ import './App.css';
 import EmployeeDetailPage from './pages/EmployeeDetailPage';
 import EmployeeListPage from './pages/EmployeeListPage';
 import UseCredit from './pages/UseCredit';
+import TransHistory from './pages/TransHistory';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/employee/:id" component={EmployeeDetailPage}/>
           <Route path="/employee" component={EmployeeDetailPage}/>
           <Route path="/use-credit/:id" component={UseCredit}/>
+          <Route path="/transactions/:id" component={TransHistory}/>
         </Switch>
       </Router>
     </div>
