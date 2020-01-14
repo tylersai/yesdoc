@@ -33,6 +33,12 @@ const EmployeeDetailPage = ({ match }) => {
     setEmp(newEmp);
   };
 
+  const goList = () => history.push('/');
+
+  const goNew = () => history.push('/employee');
+
+  const goUseCredit = () => history.push(`/use-credit/${match.params.id}`);
+
   const goSave = e => {
     e.preventDefault();
     Axio.post(API_ENDPOINT + '/employee', emp)
@@ -51,7 +57,7 @@ const EmployeeDetailPage = ({ match }) => {
     e.preventDefault();
     Axio.patch(API_ENDPOINT + `/employee/${match.params.id}`, emp)
     .then(res => {
-      if(res.data){
+      if(res.data._id){
         alert('Updated!');
       }else{
         alert('Failed to Update!');
@@ -60,10 +66,31 @@ const EmployeeDetailPage = ({ match }) => {
     .catch(err => console.log(err));
   };
 
+  const goDelete = e => {
+    e.preventDefault();
+    Axio.delete(API_ENDPOINT + `/employee/${match.params.id}`)
+    .then(res => {
+      if(res.data._id){
+        alert('Deleted!');
+        goNew();
+      }else{
+        alert('Failed to Delete');
+      }
+    })
+    .catch(err => console.log(err));
+  };
+
   return (
     <div className="EmployeeDetailPage container py-4">
       <div className="row justify-content-center">
-        <div className="col-md-10 col-lg-8">
+        <div className="col-md-3">
+          <div className="d-flex align-items-center btn-wrapper">
+            <button onClick={goList} className="btn btn-info">List</button>
+            <button onClick={goNew} className="btn btn-info mx-2" disabled={match.params.id ? false:true}>New</button>
+            <button onClick={goUseCredit} className="btn btn-info" disabled={match.params.id ? false:true}>Use Credit</button>
+          </div>
+        </div>
+        <div className="col-md-5">
           <div className="float-right credits text-info animate-enlarge" id="credits">
             <span id="credit">${(emp.credits ? emp.credits:0.0).toFixed(2)}</span>
           </div>
@@ -136,6 +163,7 @@ const EmployeeDetailPage = ({ match }) => {
                 />
               </div>
               <input type="submit" className="btn btn-info" value="Save" />
+              <button onClick={goDelete} className="btn btn-danger ml-2" disabled={match.params.id ? false:true}>Delete</button>
             </form>
           </div>
         </div>

@@ -3,6 +3,9 @@
     border: 1px solid #e9edf0;
 }
 
+.EmployeeDetailPage .btn-wrapper {
+    height: 100%;
+}
 .EmployeeDetailPage #memberId:not([disabled]){
     color:#ff70bc !important;
 }

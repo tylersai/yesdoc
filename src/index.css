@@ -13,8 +13,8 @@ code {
 }
 
 .animate-popup {
-  -webkit-animation: popup 300ms ease-out forwards;
-  animation: popup 300ms ease-out forwards;
+  -webkit-animation: popup 400ms ease-out forwards;
+  animation: popup 400ms ease-out forwards;
 }
 
 @keyframes popup {
