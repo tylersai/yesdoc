@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "./EmployeeDetailPage.css";
 
 import Axio from "axios";
 import { API_ENDPOINT, getDefaultEmp } from "../utils/Constants";
 
 const EmployeeDetailPage = ({ match }) => {
+  const history = useHistory();
   const [emp, setEmp] = useState(getDefaultEmp());
 
   useEffect(() => {
@@ -26,19 +28,38 @@ const EmployeeDetailPage = ({ match }) => {
     setEmp(newEmp);
   };
 
+  const goSave = e => {
+    e.preventDefault();
+    Axio.post(API_ENDPOINT + '/employee', emp)
+    .then(res => {
+      alert('Saved!');
+      history.push(`/employee/${res.data._id}`);
+    })
+    .catch(err => console.log(err));
+  };
+
+  const goUpdate = e => {
+    e.preventDefault();
+    Axio.patch(API_ENDPOINT + `/employee/${match.params.id}`, emp)
+    .then(res => {
+      alert('Updated!');
+    })
+    .catch(err => console.log(err));
+  };
+
   return (
     <div className="EmployeeDetailPage container py-4">
       <div className="row justify-content-center">
         <div className="col-md-10 col-lg-8">
           <div className="float-right credits text-info animate-enlarge" id="credits">
-            <sapn id="credit">${emp.credits.toFixed(2)}</sapn>
+            <span id="credit">${(emp.credits ? emp.credits:0.0).toFixed(2)}</span>
           </div>
         </div>
       </div>
       <div className="row justify-content-center">
         <div className="col-md-10 col-lg-8">
           <div className="bg-light my-3 py-4 py-sm-5 px-3 px-sm-4 px-md-5 form-wrapper shadow animate-popup">
-            <form>
+            <form onSubmit={match.params.id ? goUpdate:goSave}>
               <h3 className="text-center mb-3">Employee Information</h3>
               <div className="form-group">
                 <label htmlFor="memberId">Member ID : </label>
