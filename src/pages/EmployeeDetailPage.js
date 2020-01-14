@@ -31,7 +31,7 @@ const EmployeeDetailPage = ({ match }) => {
       <div className="row justify-content-center">
         <div className="col-md-10 col-lg-8">
           <div className="float-right credits text-info animate-enlarge" id="credits">
-            <sapn id="credit">${12585.32}</sapn>
+            <sapn id="credit">${emp.credits.toFixed(2)}</sapn>
           </div>
         </div>
       </div>
