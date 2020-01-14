@@ -2,3 +2,26 @@
     border-radius: 10px;
     border: 1px solid #e9edf0;
 }
+
+.EmployeeDetailPage #memberId:not([disabled]){
+    color:#ff70bc !important;
+}
+
+.EmployeeDetailPage .credits {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22vmin;
+    min-height: 22vmin;
+    border-radius: 50%;
+    border: 4px solid #70eaff;
+}
+
+.EmployeeDetailPage .credits > #credit {
+    display: block;
+    cursor: default;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 3vmin;
+    white-space: nowrap;
+}

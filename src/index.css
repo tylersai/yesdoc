@@ -12,4 +12,36 @@ code {
     monospace;
 }
 
+.animate-popup {
+  -webkit-animation: popup 250ms ease-out forwards;
+  animation: popup 250ms ease-out forwards;
+}
 
+@keyframes popup {
+  0%{
+    opacity: 0;
+    transform: translateY(15vh);
+  }
+  100%{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-enlarge {
+  -webkit-animation: enlarge 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            animation: enlarge 800ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes enlarge {
+  0%{
+    -webkit-transform: scale(0);
+    -ms-transform: scale(0);
+        transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+        transform: scale(1);
+  }
+}
