@@ -59,7 +59,7 @@ const TransHistory = ({match}) => {
                     key={trans._id}
                     className={"list-group-item animate-popup list-group-item-" + (+trans.amount>0 ? "success":"danger")}
                   >
-                    <h5 className="text-left">$ {trans.amount}</h5>
+                    <h5 className="text-left">$ {(+trans.amount).toFixed(2)}</h5>
                     <h6 className="datetime">{new Date(trans.datetime).toLocaleString("en-US", {
                       year: "2-digit",
                       month: "short",
