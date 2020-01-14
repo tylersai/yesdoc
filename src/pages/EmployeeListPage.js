@@ -22,15 +22,23 @@ const EmployeeListPage = () => {
   });
 
   return (
-    <div className="container">
-      <div className="EmployeeListPage">
-        <h1>Employee List Page</h1>
-        {empList.map(emp => (
-          <div key={emp._id} className="rounded bg-light m-3">
-            <Link to={`/employee/${emp._id}`}>{emp._id}</Link>
-            <h4>{emp.name}</h4>
+    <div className="EmployeeListPage container py-4">
+      <div className="row justify-content-center">
+        <div className="col-md-10 col-lg-8">
+          <h3 className="text-center mt-2 mb-4">List of Employees</h3>
+          <div className="list-group">
+            {empList.map(emp => (
+              <Link
+                key={emp._id}
+                to={"/employee/" + emp._id}
+                className="list-group-item list-group-item-light list-group-item-action animate-popup"
+              >
+                <h5>{emp.memberId}</h5>
+                <h6>{emp.name}</h6>
+              </Link>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   );
