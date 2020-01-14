@@ -12,10 +12,15 @@ const EmployeeDetailPage = ({ match }) => {
   useEffect(() => {
     if (match.params.id) {
       Axio.get(API_ENDPOINT + `/employee/${match.params.id}`)
-        .then(res => setEmp(res.data))
+        .then(res => {
+          if(res.data._id)
+            setEmp(res.data);
+          else
+            history.push('/employee');
+        })
         .catch(error => {
           console.error(error);
-          setEmp(getDefaultEmp());
+          history.push('/employee');
         });
     } else {
       setEmp(getDefaultEmp());
@@ -32,8 +37,12 @@ const EmployeeDetailPage = ({ match }) => {
     e.preventDefault();
     Axio.post(API_ENDPOINT + '/employee', emp)
     .then(res => {
-      alert('Saved!');
-      history.push(`/employee/${res.data._id}`);
+      if(res.data._id){
+        alert('Saved!');
+        history.push(`/employee/${res.data._id}`);
+      }else{
+        alert('Failed to Save!');
+      }
     })
     .catch(err => console.log(err));
   };
@@ -42,7 +51,11 @@ const EmployeeDetailPage = ({ match }) => {
     e.preventDefault();
     Axio.patch(API_ENDPOINT + `/employee/${match.params.id}`, emp)
     .then(res => {
-      alert('Updated!');
+      if(res.data){
+        alert('Updated!');
+      }else{
+        alert('Failed to Update!');
+      }
     })
     .catch(err => console.log(err));
   };
