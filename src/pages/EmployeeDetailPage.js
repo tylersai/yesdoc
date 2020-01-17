@@ -123,9 +123,9 @@ const EmployeeDetailPage = ({ match }) => {
                   required
                   onChange={onEmpChange}
                 />
-                <small id="memberIdHelp" className="form-text text-muted">
+                { match.params.id ? null:(<small id="memberIdHelp" className="form-text text-muted">
                   Once Employee Member ID is set, it can't be changed!
-                </small>
+                </small>)}
               </div>
               <div className="form-group">
                 <label htmlFor="name">Name : </label>
