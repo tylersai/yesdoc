@@ -4,17 +4,21 @@ import "./EmployeeListPage.css";
 
 import Axio from "axios";
 import { API_ENDPOINT } from "../utils/Constants";
+import Loading from "../components/Loading";
 
 const EmployeeListPage = () => {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
   const [empList, setEmpList] = useState([]);
 
   const fetchEmpList = async () => {
     try {
       const res = await Axio.get(API_ENDPOINT + "/employee");
       setEmpList(res.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setIsLoading(false);
     }
   };
 
@@ -34,7 +38,7 @@ const EmployeeListPage = () => {
           </div>
           <div className="row">
             <div className="col">
-              <div className="list-group">
+              { isLoading ? <div className="d-flex justify-content-center animate-popup"><Loading/></div>:(<div className="list-group">
                 {empList.map(emp => (
                   <Link
                     key={emp._id}
@@ -45,7 +49,7 @@ const EmployeeListPage = () => {
                     <h6>{emp.name}</h6>
                   </Link>
                 ))}
-              </div>
+              </div>)}
             </div>
           </div>
         </div>
