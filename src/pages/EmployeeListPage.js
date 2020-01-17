@@ -5,6 +5,7 @@ import "./EmployeeListPage.css";
 import Axio from "axios";
 import { API_ENDPOINT } from "../utils/Constants";
 import Loading from "../components/Loading";
+import NoData from "../components/NoData";
 
 const EmployeeListPage = () => {
   const history = useHistory();
@@ -40,7 +41,7 @@ const EmployeeListPage = () => {
           <div className="row">
             <div className="col">
               { isLoading ? <div className="d-flex justify-content-center animate-popup"><Loading/></div>:(<div className="list-group">
-                {empList.map(emp => (
+                { empList.length>0 ? empList.map(emp => (
                   <Link
                     key={emp._id}
                     to={"/employee/" + emp._id}
@@ -49,7 +50,8 @@ const EmployeeListPage = () => {
                     <h5>{emp.memberId}</h5>
                     <h6>{emp.name}</h6>
                   </Link>
-                ))}
+                )):<NoData desc="No Employee" />
+              }
               </div>)}
             </div>
           </div>
