@@ -4,9 +4,11 @@ import "./TransHistory.css";
 
 import Axio from "axios";
 import { API_ENDPOINT } from "../utils/Constants";
+import Loading from "../components/Loading";
 
 const TransHistory = ({match}) => {
   const history = useHistory();
+  const [isLoading, setIsLoading] = useState(true);
   const [transList, setTransList] = useState([]);
   const [emp, setEmp] = useState({});
 
@@ -14,9 +16,11 @@ const TransHistory = ({match}) => {
     try {
       const res = await Axio.get(API_ENDPOINT + `/transaction/${match.params.id}`);
       setTransList(res.data);
+      setIsLoading(false);
     } catch (error) {
       console.error(error);
       setTransList([]);
+      setIsLoading(false);
     }
   };
 
@@ -53,7 +57,7 @@ const TransHistory = ({match}) => {
           </div>
           <div className="row">
             <div className="col">
-              {transList.length > 0 ? (<div className="list-group">
+              { isLoading ? <div className="d-flex justify-content-center animate-popup"><Loading/></div>:transList.length > 0 ? (<div className="list-group">
                 {transList.map(trans => (
                   <button
                     key={trans._id}

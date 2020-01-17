@@ -18,6 +18,7 @@ const EmployeeListPage = () => {
       setIsLoading(false);
     } catch (error) {
       console.error(error);
+      setEmpList([]);
       setIsLoading(false);
     }
   };
