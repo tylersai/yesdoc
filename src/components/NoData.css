@@ -1,0 +1,10 @@
+.NoData > div {
+    position: relative;
+}
+
+.NoData img {
+    display: block;
+    height: auto;
+    width: 10vmax;
+    margin: auto;
+}

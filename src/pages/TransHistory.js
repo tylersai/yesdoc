@@ -5,6 +5,7 @@ import "./TransHistory.css";
 import Axio from "axios";
 import { API_ENDPOINT } from "../utils/Constants";
 import Loading from "../components/Loading";
+import NoData from "../components/NoData";
 
 const TransHistory = ({match}) => {
   const history = useHistory();
@@ -75,7 +76,7 @@ const TransHistory = ({match}) => {
                     })}</h6>
                   </button>
                 ))}
-              </div>):null}
+              </div>):<NoData desc="No Transaction History"/>}
             </div>
           </div>
         </div>
