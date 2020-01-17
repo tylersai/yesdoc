@@ -99,7 +99,7 @@ const EmployeeDetailPage = ({ match }) => {
             <button onClick={goUseCredit} className="btn btn-info animate-enlarge" disabled={match.params.id ? false:true}>Use Credit</button>
           </div>
         </div>
-        <div className="col-md-5">
+        <div className="col-md-5 order-first order-md-last">
           <div className="float-right credits text-info animate-enlarge" id="credits">
             <span id="credit">${(emp.credits ? emp.credits:0.0).toFixed(2)}</span>
           </div>
