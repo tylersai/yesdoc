@@ -7,7 +7,8 @@ appointments and find nearby clinics.<br/><br/>
 For live production, please visit [http://yesdoc.netlify.com](http://yesdoc.netlify.com).
 
 ## Configurations
-To replace your API end point, simply change `API_ENDPOINT` constant variable in `src/utils/Constants.js` or you can set up `.env` using `npm`'s `dotenv`.
+To replace your API end point, simply change `API_ENDPOINT` constant variable in `src/utils/Constants.js` or you can set up `.env` using `npm`'s `dotenv` :<br/>
+`REACT_APP_API_ENDPOINT=https://yesdoc-api.herokuapp.com`
 
 ## Available Scripts
 
