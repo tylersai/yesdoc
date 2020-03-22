@@ -26,7 +26,7 @@ const EmployeeListPage = () => {
 
   useEffect(() => {
     fetchEmpList();
-  });
+  }, []);
 
   return (
     <div className="EmployeeListPage container py-4">
@@ -40,8 +40,8 @@ const EmployeeListPage = () => {
           </div>
           <div className="row">
             <div className="col">
-              { isLoading ? <div className="d-flex justify-content-center animate-popup"><Loading/></div>:(<div className="list-group">
-                { empList.length>0 ? empList.map(emp => (
+              {isLoading ? <div className="d-flex justify-content-center animate-popup"><Loading /></div> : (<div className="list-group">
+                {empList.length > 0 ? empList.map(emp => (
                   <Link
                     key={emp._id}
                     to={"/employee/" + emp._id}
@@ -50,8 +50,8 @@ const EmployeeListPage = () => {
                     <h5>{emp.memberId}</h5>
                     <h6>{emp.name}</h6>
                   </Link>
-                )):<NoData desc="No Employee" />
-              }
+                )) : <NoData desc="No Employee" />
+                }
               </div>)}
             </div>
           </div>
