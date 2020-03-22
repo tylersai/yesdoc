@@ -1,4 +1,4 @@
-export const API_ENDPOINT = "<YOUR-API-ENDPOINT>";
+export const API_ENDPOINT = process.env.REACT_APP_API_ENDPOINT;
 
 export const getDefaultEmp = () => {
   return {
