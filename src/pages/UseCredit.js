@@ -82,7 +82,7 @@ const UseCredit = ({ match }) => {
                   step=".01"
                 />
                 <small id="memberIdHelp" className="form-text text-muted">
-                  Enter credit amount you would like to use.
+                  Enter credit amount you would like to use. Enter negative amount to add to credit. Conceptually, it is credited by employer. But this is just for demo purpose.
                 </small>
               </div>
               <button onClick={goBack} className="btn btn-info">
