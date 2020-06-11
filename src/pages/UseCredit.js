@@ -24,7 +24,7 @@ const UseCredit = ({ match }) => {
     } else {
       history.push("/employee");
     }
-  }, [match.params.id]);
+  }, [history, match.params.id]);
 
   const onAmtChange = e => setAmount(e.target.value);
 
@@ -37,12 +37,12 @@ const UseCredit = ({ match }) => {
     e.preventDefault();
     if (amount !== 0) {
       Axio.post(API_ENDPOINT + `/employee/transact/${emp._id}`, {
-        amount: amount
+        amount: amount * (-1)
       })
         .then(res => {
           if (res.data.nModified > 0) {
             Axio.post(API_ENDPOINT + `/transaction/${emp._id}`, {
-              amount: amount
+              amount: amount * (-1)
             })
               .then(res => {
                 if (res.data._id) {
