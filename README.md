@@ -4,7 +4,8 @@ healthcare benefits, claims, credits and other details. The idea of the platform
 which is the employee to have quick access to their benefits which is mostly credits given by the
 employer and use them for clinic consultations. This aside from being able to book
 appointments and find nearby clinics.<br/><br/>
-For live production, please visit [http://yesdoc.netlify.com](http://yesdoc.netlify.com).
+For live production, please visit [http://yesdoc.netlify.com](http://yesdoc.netlify.com).<br/>
+For backend api repo,  please visit [https://github.com/thesaihan/yesdoc-api](https://github.com/thesaihan/yesdoc-api)
 
 ## Configurations
 To replace your API end point, simply change `API_ENDPOINT` constant variable in `src/utils/Constants.js` or you can set up `.env` using `npm`'s `dotenv` :<br/>
